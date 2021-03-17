@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
     name : 'connexion',
     data(){
@@ -59,15 +58,7 @@ export default {
              password : ""
            }
         }
-    },
-    created(){
-        axios
-        .get('http://138.68.74.39/api/login?email=toto@toto.com&password=totototo')
-        .then(response => {
-            console.log(response)
-        })
     }
-
 }
 </script>
 

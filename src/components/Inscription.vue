@@ -8,7 +8,7 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <form>
-          <!-- nom -->
+          <!-- user -->
           <div class="form-group">
             <input
               type="text"
@@ -20,30 +20,7 @@
             />
           </div>
           <br />
-          <!-- prenom -->
-          <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              id="prenom"
-              required
-              v-model="prenom"
-              placeholder="Entrer votre prenom "
-            />
-          </div>
-          <br />
-          <!-- date de naissance -->
-          <div class="form-group">
-            <input
-              type="date"
-              class="form-control"
-              id="dateNaisse"
-              required
-              v-model="dateNaisse"
-              placeholder="Votre date de naissance "
-            />
-          </div>
-          <br />
+        
           <!-- email -->
 
           <div class="form-group">
@@ -108,9 +85,7 @@ export default {
   name: "inscription",
   data() {
     return {
-      nom: "",
-      prenom: "",
-      dateNaisse: "",
+      user: "",
       email: "",
       motDePasse: "",
       cfr_motDePasse: ""
