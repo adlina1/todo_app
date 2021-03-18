@@ -1,7 +1,7 @@
 # Projet de ToDoLists
 
 ## Description
-_Projet de L3 Informatique à réaliser dans le cadre de l'UE "Développement d'application mobile" et de l'EC "Projet" traite du développement avec le framework VueJS d'une application web de liste de tâches (todo list)_
+_Projet de L3 Informatique à réaliser dans le cadre de l'UE "Développement d'application mobile" et de l'EC "Projet" et qui traite du développement d'une application web de liste de tâches (todo list) avec le framework VueJS_
 
 ## Project setup
 ```
