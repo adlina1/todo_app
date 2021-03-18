@@ -80,6 +80,7 @@
           <br>
           <button @click="loadUsers">Afficher les données</button>
           <p>Liste: {{ users }}</p>
+          <p> Token : {{ token }} </p>
 
         </form>
       </div>
@@ -91,14 +92,13 @@
 
 <script>
 import axios from "axios";
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   namespaced: true,
   name: "Inscription",
   data() {
     return {
-      token: '',
       users: [],
       user: "",
       email: "",
@@ -107,6 +107,12 @@ export default {
     };
   },
   methods: {
+
+    computed: {
+    ...mapState({
+      token: 'token'
+    }),
+    },
 
     ...mapActions(
        "compte", ["signup"] //module, method
@@ -119,9 +125,10 @@ export default {
       if(this.motDePasse === this.cfr_motDePasse){
         this.signup({'user': this.user, 'email': this.email, 'password': this.motDePasse}).then( function(response) {
           this.token = response.data;
-          console.log(response);
+          console.log("response");
       })
       .catch(error => {
+        console.log("erreur:");
         console.log(error);
       });
       }  
@@ -136,6 +143,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style></style>
