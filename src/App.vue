@@ -1,6 +1,5 @@
 <template>
-
-<!-- Navbar permettant de faire le menu et la barre de recherche -->
+  <!-- Navbar permettant de faire le menu et la barre de recherche -->
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -19,14 +18,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/todo">Liste des tâches </router-link>
+            <router-link class="nav-link" to="/todo"
+              >Liste des tâches
+            </router-link>
             <!-- <a class="nav-link active" aria-current="page" href="#">Liste des tâches</a> -->
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/about">À propos</router-link>
             <!-- <a class="nav-link" href="#">Link</a> -->
           </li>
-          
+
           <li class="nav-item">
             <a
               class="nav-link disabled"
@@ -38,12 +39,14 @@
           </li>
         </ul>
         <form class="d-flex">
-         <router-link class="nav-link" to="/connexion">Connexion</router-link>
-          <router-link class="btn btn-outline-success" to="/inscription">S'inscrire</router-link>
+          <router-link class="nav-link" to="/connexion">Connexion</router-link>
+          <router-link class="btn btn-outline-success" to="/inscription"
+            >S'inscrire</router-link
+          >
         </form>
       </div>
     </div>
-  </nav> 
+  </nav>
   <router-view />
 </template>
 

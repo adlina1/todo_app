@@ -34,7 +34,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  mode : 'history',
+  mode: "history",
   history: createWebHashHistory(),
   routes
 });

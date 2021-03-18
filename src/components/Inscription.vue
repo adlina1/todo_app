@@ -1,13 +1,15 @@
 <template>
   <div class="conteneur">
-    <h1>Inscription</h1>
+    <h1 id="title">Inscription</h1>
     <br />
     <br />
     <div class="row">
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
       <div class="col-md-6">
+
         <form>
+
           <!-- user -->
           <div class="form-group">
             <input
@@ -15,14 +17,13 @@
               class="form-control"
               id="nom"
               required
-              v-model="nom"
+              v-model="user"
               placeholder="Entrer votre nom "
             />
           </div>
           <br />
-        
-          <!-- email -->
 
+          <!-- email -->
           <div class="form-group">
             <input
               type="email"
@@ -34,6 +35,7 @@
               placeholder="Entrer votre adresse email"
             />
           </div>
+
           <br />
           <!-- mot de passe -->
           <div class="form-group">
@@ -46,13 +48,15 @@
               placeholder="Mot de passe"
             />
           </div>
+
           <div
             v-if="motDePasse.length > 1 && motDePasse.length < 8"
             class="text-danger"
           >
-            Le mot de passe doit contenir minimum 8 caractères!
+            Le mot de passe doit contenir minimum 8 caractères.
           </div>
           <br />
+
           <!-- confirmation mot de passe -->
           <div class="form-group">
             <input
@@ -64,27 +68,38 @@
               placeholder="Confirmez votre mot de passe"
             />
           </div>
-          <!-- controle de la correspondance des deux mots de passes  -->
+
+          <!-- controle de la correspondance des deux mots de passe  -->
           <div v-if="motDePasse != cfr_motDePasse" class="text-danger">
-            Mot de passe incorrecte!
+            Mot de passe incorrect.
           </div>
           <br />
 
-          <button class="btn btn-primary">S'inscrire</button>
-          </form>
+          <button  @click="inscription" type="submit" class="btn btn-primary">S'inscrire</button>
+
+          <br>
+          <button @click="loadUsers">Afficher les données</button>
+          <p>Liste: {{ users }}</p>
+
+        </form>
       </div>
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
-       
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import { mapActions } from 'vuex';
+
 export default {
-  name: "inscription",
+  namespaced: true,
+  name: "Inscription",
   data() {
     return {
+      token: '',
+      users: [],
       user: "",
       email: "",
       motDePasse: "",
@@ -92,10 +107,35 @@ export default {
     };
   },
   methods: {
+
+    ...mapActions(
+       "compte", ["signup"] //module, method
+    ),
+    mounted(){
+      this.signup();
+    },
+
+    inscription(){
+      if(this.motDePasse === this.cfr_motDePasse){
+        this.signup({'user': this.user, 'email': this.email, 'password': this.motDePasse}).then( function(response) {
+          this.token = response.data;
+          console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+      }  
+    },
     
-  },
+    loadUsers() {
+      axios.get("https://api.github.com/users/mapbox").then(
+        function(response) {
+          this.users = response.data;
+        }.bind(this)  
+      );
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

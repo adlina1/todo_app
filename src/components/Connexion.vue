@@ -50,17 +50,16 @@
 
 <script>
 export default {
-    name : 'connexion',
-    data(){
-        return {
-           user :{
-             login : "",
-             password : ""
-           }
-        }
-    }
-}
+  name: "connexion",
+  data() {
+    return {
+      user: {
+        login: "",
+        password: ""
+      }
+    };
+  }
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
