@@ -1,25 +1,14 @@
-# app-devmob
+## Application ToDoLists
 
-## Project setup
-```
-npm install
-```
+# Description
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+` Projet d'une application de gestion de tâches avec le framework VueJS dans le cadre de l'UE "Développement d'application mobile" et de l'EC "Projet" `
 
-### Compiles and minifies for production
+# Team
 ```
-npm run build
-sdsds
+Adrien LINARES
+Mohamed CAMARA
+Aboubacar CAMARA 
+Amayes MEZINE
+Amadou KEITA
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
