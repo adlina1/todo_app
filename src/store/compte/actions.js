@@ -17,8 +17,7 @@ export function signup({commit},data) {
       .catch(function (error) {
         // handle error
         console.log(error);
-      });
-
+      })
     }
 
   export function login({commit}, data) {
@@ -34,12 +33,12 @@ export function signup({commit},data) {
       });
   }
 
-  export function getUser({commit}) {
+  export function showUser({commit}) {
 
     axios.get("http://138.68.74.39/api/user").then(function (response) {
-      commit('getUser', response)
+      commit('getUser', response.data)
     })
     .catch(function(error){
       console.log(error);
-    })
+    });
   }

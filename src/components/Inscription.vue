@@ -122,7 +122,8 @@ export default {
 
     inscription(){
       if(this.motDePasse === this.cfr_motDePasse){
-        this.signup({'user': this.user, 'email': this.email, 'password': this.motDePasse}).then( function(response) {
+        this.signup({'user': this.user, 'email': this.email, 'password': this.motDePasse})
+        .then( function(response) {
           console.log("response",response);
       })
       .catch(error => {
@@ -135,4 +136,3 @@ export default {
 
 </script>
 
-<style></style>

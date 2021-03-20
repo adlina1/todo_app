@@ -7,8 +7,8 @@
 <p> This project dealed with the creation of a web application of ToDo List as part of the 
   last year of Computer Science Bachelor's Degree.
   There is a register part as well as a login part in order to access to the main funcionalities 
-  of this application, that is to say, <u>create</u>-<u>delete</u>-<u>modify</u>-<u>display</u>
-  ToDo lists and ToDos. Call to external API have been made.  <a href="https://documenter.getpostman.com/view/570147/TVRrU4GY#44246617-db27-4910-82d5-bbcd598ced4d" target="_blank">Documentation there</a> 
+  of this application, e.g. <u>create</u>-<u>delete</u>-<u>modify</u>-<u>display</u>
+  ToDo lists and ToDos. Call to an external API have been made.  <a href="https://documenter.getpostman.com/view/570147/TVRrU4GY#44246617-db27-4910-82d5-bbcd598ced4d" target="_blank">Documentation there.</a> 
 </p>
 </div>
 

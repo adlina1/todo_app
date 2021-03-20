@@ -30,7 +30,7 @@
           <div class="form-group">
             <label for="motDePasse">Mot de passe</label>
             <input
-              type="password"
+              type="password" 
               class="form-control"
               id="motDePasse"
               required
@@ -42,6 +42,9 @@
           <button @click="connectMe" class="btn btn-primary">Connexion</button>
         </form>
       </div>
+      <p class="checkToken"> Token : {{ myToken }} </p> 
+      
+
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
     </div>
@@ -49,7 +52,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: "connexion",
@@ -60,10 +63,17 @@ export default {
         password: ""
     }
   },
+
+computed: {
+      ...mapGetters(
+          "compte", ["myToken", "currentUser"],
+      )
+    },
+
   methods: {
 
     ...mapActions(
-      "compte", ["login"]
+      "compte", ["login","showUser"]
     ),
 
 
@@ -75,15 +85,16 @@ export default {
       .catch(function (error) {
         console.log("Une erreur a été trouvée: ", error);
       });
-    }
-
-
-
+    },
 
   }
 };
 </script>
 
 
-
-<style scoped></style>
+<style scoped>
+.checkToken{
+  margin-top: 3%;
+  font-size: 10px;
+}
+</style>
