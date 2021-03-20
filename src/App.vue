@@ -16,6 +16,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link class="nav-link" to="/todo"
@@ -25,25 +26,25 @@
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/about">À propos</router-link>
-            <!-- <a class="nav-link" href="#">Link</a> -->
           </li>
 
           <li class="nav-item">
-            <a
+          <a
               class="nav-link disabled"
               href="#"
               tabindex="-1"
-              aria-disabled="true"
-              >Deconnexion</a
-            >
+              aria-disabled="true">
+          Deconnexion
+          </a>
           </li>
         </ul>
+
+        <!-- Boutons de la sidebar pour la connexion et l'inscription -->
         <form class="d-flex">
           <router-link class="nav-link" to="/connexion">Connexion</router-link>
-          <router-link class="btn btn-outline-success" to="/inscription"
-            >S'inscrire</router-link
-          >
+          <router-link class="btn btn-outline-success" to="/inscription">S'inscrire</router-link>
         </form>
+
       </div>
     </div>
   </nav>

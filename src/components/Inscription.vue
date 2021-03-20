@@ -78,9 +78,8 @@
           <button  @click="inscription" type="submit" class="btn btn-primary">S'inscrire</button>
 
           <br>
-          <button @click="loadUsers">Afficher les données</button>
-          <p>Liste: {{ users }}</p>
-          <p> Token : {{ token }} </p>
+        
+          <p> token : {{ myToken }} </p>
 
         </form>
       </div>
@@ -90,29 +89,29 @@
   </div>
 </template>
 
+
+
+
 <script>
-import axios from "axios";
-import { mapActions, mapState } from 'vuex';
+
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   namespaced: true,
   name: "Inscription",
   data() {
     return {
-      users: [],
       user: "",
       email: "",
       motDePasse: "",
       cfr_motDePasse: ""
     };
   },
-  methods: {
-
     computed: {
-    ...mapState({
-      token: 'token'
-    }),
+    ...mapGetters("compte", ["myToken"]),
     },
+
+    methods: {
 
     ...mapActions(
        "compte", ["signup"] //module, method
@@ -124,22 +123,13 @@ export default {
     inscription(){
       if(this.motDePasse === this.cfr_motDePasse){
         this.signup({'user': this.user, 'email': this.email, 'password': this.motDePasse}).then( function(response) {
-          this.token = response.data;
-          console.log("response");
+          console.log("response",response);
       })
       .catch(error => {
         console.log("erreur:");
         console.log(error);
       });
       }  
-    },
-    
-    loadUsers() {
-      axios.get("https://api.github.com/users/mapbox").then(
-        function(response) {
-          this.users = response.data;
-        }.bind(this)  
-      );
     }
   }
 };

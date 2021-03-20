@@ -19,7 +19,8 @@ const routes = [
   {
     path: "/inscription",
     name: "inscription",
-    component: Inscription
+    component: Inscription,
+
   },
   {
     path: "/about",
@@ -30,7 +31,7 @@ const routes = [
     path: "/todo",
     name: "Todo",
     component: Todo
-  }
+  },
 ];
 
 const router = createRouter({

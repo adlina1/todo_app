@@ -1,33 +1,48 @@
 <template>
   <h1>Les taches</h1>
-  <hr />
+  <hr/>
+
   <ul>
-    <li v-bind:key="index" v-for="(articles, index) in this.allArticles"></li>
     <div class="card m-2">
-      <!-- <h3>{{articles.body}}</h3> -->
-    </div>
+  </div>
   </ul>
+
+  <div>
+    <input type="text" v-model="myTodoName"/>
+    <button @click="create">Submit</button>
+  </div>
+
 </template>
 
 <script>
-// import axios from 'axios';
+import { mapActions } from 'vuex';
+
 export default {
-  name: "lesTaches",
+  namespaced: true,
+  name: 'lesTaches',
+
   data() {
     return {
-      allArticles: []
+      myTodoName: ""
     };
+  },
+
+  methods: {
+
+    ...mapActions(
+      "todolisst", ["createToDoList"]
+      ),
+
+    create(){
+        this.createToDoList(this.myTodoName)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log("Une erreur est apparue:\n",error);
+        });
+    }
   }
 };
-
-// axios.get('https://api.github.com/users/mapbox')
-//   .then((response) => {
-//     console.log(response.data);
-//     console.log(response.status);
-//     console.log(response.statusText);
-//     console.log(response.headers);
-//     console.log(response.config);
-//   });
 </script>
-
-<style></style>mport { create
+            

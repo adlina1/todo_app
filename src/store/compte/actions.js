@@ -20,11 +20,17 @@ export function signup({commit},data) {
         console.log(error);
       })
 
-  }
+    }
 
+  export function login({commit}, data) {
+      var password = data.password;
+      var mail = data.email;
 
-  export function login() {
-
+      axios.post('http://138.68.74.39/api/login?email='+mail+'&password='+password).then(function (reponse){
+        commit('signin', reponse.data);
+      }).catch(function(error){
+        console.log(error);
+      });
   }
 
   export function getUser({commit}) {
