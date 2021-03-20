@@ -1,11 +1,29 @@
 <template>
   <div class="about">
-    <h1>La page about</h1>
+    <h1>About</h1>
   </div>
 
-  <p>Nom -> {{ this.$store.state.name }}</p>
+<div class ="description">
+<p> This project dealed with the creation of a web application of ToDo List as part of the 
+  last year of Computer Science Bachelor's Degree.
+  There is a register part as well as a login part in order to access to the main funcionalities 
+  of this application, that is to say, <u>create</u>-<u>delete</u>-<u>modify</u>-<u>display</u>
+  ToDo lists and ToDos. Call to external API have been made.  <a href="https://documenter.getpostman.com/view/570147/TVRrU4GY#44246617-db27-4910-82d5-bbcd598ced4d" target="_blank">Documentation there</a> 
+</p>
+</div>
 
-  <p>heelo</p>
+<div class = "Us">
+  <h3> <b>Team</b> </h3>
+<ul class='list'>
+  <li> Amayes MEZINE </li>
+  <li> Mohamed CAMARA </li>
+  <li> Adrien LINARES </li>
+  <li> Amadou KEITA </li>
+  <li> Aboubacar CAMARA </li>
+</ul>
+</div>
+
+
 </template>
 
 <script lang="ts">
@@ -13,3 +31,25 @@
 
 export default {};
 </script>
+
+
+<style scoped>
+.description {
+  margin-top: 5%;
+  font-size: 17px;
+  align-content: center;
+  padding-left:60px;
+  padding-right: 60px;
+}
+
+.Us {
+  margin-top: 3%;
+  font-size: 19px;
+} 
+.list{
+  color:rgb(27, 44, 71);
+}
+li {
+margin-bottom: 15px;
+}
+</style>

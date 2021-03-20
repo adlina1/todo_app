@@ -1,5 +1,5 @@
 <template>
-  <h1>Les taches</h1>
+  <h1>ToDo</h1>
   <hr/>
 
   <ul>
@@ -9,7 +9,7 @@
 
   <div>
     <input type="text" v-model="myTodoName"/>
-    <button @click="create">Submit</button>
+    <button @click="create">Add a todo</button>
   </div>
 
 </template>
@@ -30,7 +30,7 @@ export default {
   methods: {
 
     ...mapActions(
-      "todolisst", ["createToDoList"]
+      "todolist", ["createToDoList"]
       ),
 
     create(){

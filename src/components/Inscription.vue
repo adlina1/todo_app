@@ -126,8 +126,7 @@ export default {
           console.log("response",response);
       })
       .catch(error => {
-        console.log("erreur:");
-        console.log(error);
+        console.log("erreur trouvée:\n", error);
       });
       }  
     }

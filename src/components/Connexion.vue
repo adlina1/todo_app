@@ -34,12 +34,12 @@
               class="form-control"
               id="motDePasse"
               required
-              v-model="motDePasse"
+              v-model="password"
               placeholder="Mot de passe"
             />
           </div>
           <br />
-          <button class="btn btn-primary">Connexion</button>
+          <button @click="connectMe" class="btn btn-primary">Connexion</button>
         </form>
       </div>
       <!-- La partie droite  -->
@@ -49,17 +49,41 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "connexion",
+
   data() {
     return {
-      user: {
-        login: "",
+        email: "",
         password: ""
-      }
-    };
+    }
+  },
+  methods: {
+
+    ...mapActions(
+      "compte", ["login"]
+    ),
+
+
+    connectMe(){
+      this.login({'email': this.email, 'password': this.password})
+      .then( function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log("Une erreur a été trouvée: ", error);
+      });
+    }
+
+
+
+
   }
 };
 </script>
+
+
 
 <style scoped></style>

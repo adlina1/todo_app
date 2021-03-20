@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function createToDoList( {commit}, name ){
 
-    let todoListName = this.title;
+    let todoListName = name;
 
     axios.post("http://138.68.74.39/api/todolist?name="+todoListName)
     .then(function(response) {

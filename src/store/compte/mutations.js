@@ -1,4 +1,3 @@
-
 export function setToken(state, data){
   console.log("set token called");
   state.token = data; // data: response.data.token
