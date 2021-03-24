@@ -27,6 +27,7 @@ export function signup({commit},data) {
       axios.post('http://138.68.74.39/api/login?email='+mail+'&password='+password).then(function (response){
         commit('setToken', response.data.token);
         commit('signin', response.data);
+        commit('userConnected', mail);
         console.log("ok");
       }).catch(function(error){
         console.log(error);

@@ -30,7 +30,7 @@
           <div class="form-group">
             <label for="motDePasse">Mot de passe</label>
             <input
-              type="password" 
+              type="password"
               class="form-control"
               id="motDePasse"
               required
@@ -39,11 +39,12 @@
             />
           </div>
           <br />
-          <button @click="connectMe" class="btn btn-primary">Connexion</button>
+          <router-link @click="connectMe" class="btn btn-primary" to="Todo">
+            Connexion
+          </router-link>
         </form>
       </div>
-      <p class="checkToken"> Token : {{ myToken }} </p> 
-      
+      <p class="checkToken">Token : {{ myToken }}</p>
 
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
@@ -52,48 +53,48 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "connexion",
 
   data() {
     return {
-        email: "",
-        password: ""
-    }
+      email: "",
+      password: "",
+    };
   },
 
-computed: {
-      ...mapGetters(
-          "compte", ["myToken", "currentUser"],
-      )
-    },
+  computed: {
+    ...mapGetters("compte", ["myToken", "currentUser"]),
+    ...mapGetters("compte", ["getIsConnected", "currentUser"]),
+  },
 
   methods: {
+    ...mapActions("compte", ["login", "showUser"]),
 
-    ...mapActions(
-      "compte", ["login","showUser"]
-    ),
-
-
-    connectMe(){
-      this.login({'email': this.email, 'password': this.password})
-      .then( function (response) {
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log("Une erreur a été trouvée: ", error);
-      });
+    canConnected: function() {
+      if (this.getIsConnected != undefined) {
+        this.$route.push("/Todo");
+      }
     },
-
-  }
+    connectMe() {
+      this.login({ email: this.email, password: this.password })
+        .then(function(response) {
+          console.log(response);
+          this.canConnected();
+          console.log(this.getIsConnected);
+        })
+        .catch(function(error) {
+          console.log("Une erreur a été trouvée: ", error);
+        });
+    },
+  },
 };
 </script>
 
-
 <style scoped>
-.checkToken{
+.checkToken {
   margin-top: 3%;
   font-size: 10px;
 }
