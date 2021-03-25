@@ -11,6 +11,7 @@ export function loadTodoLists({ commit }, token){
   .get('http://138.68.74.39/api/todolists', {headers: 
     {'Authorization': 'Bearer '+token}})
   .then(response => {
+    console.log(response);
     commit("chargement", response.data);
   })
   .catch(error => {
@@ -35,6 +36,11 @@ export function createTodoList({ commit }, data){
   .catch(error => {
     console.log("erreur trouvée [creation todoList]:\n", error);
   });
+}
+
+export function modifCurrentlist({commit} ,key){
+  console.log(key);
+  commit("setCurrentList", key);
 }
 
 
@@ -63,11 +69,13 @@ export function deleteTodoList({ commit }, data){
  * @param {*} info 
  */
 export function loadTodos({ commit }, data){
+  console.log("hh");
   axios
   .get('http://138.68.74.39/api/todos/'+data["id"], 
     {headers: 
       {'Authorization': 'Bearer '+data['token']}})
   .then(response => {
+    console.log(response);
     commit("set_Todos", response.data);
     commit("set_identTodoList",data["id"]);
   })

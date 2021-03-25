@@ -1,5 +1,6 @@
 export function chargement(state, myList) {
   state.todoLists = myList;
+
 }
 
 
@@ -33,5 +34,10 @@ export function set_identTodoList(state,ident){
   state.ident = ident;
 }
 
-
+export function setCurrentList(state, key) {
+  state.currentList = state.todoLists[key].todos;
+  
+  console.log(state.currentList)
+  console.log(state.todoLists)
+}
 

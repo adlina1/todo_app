@@ -73,9 +73,9 @@
           </div>
           <br />
 
-          <button @click="inscription" type="submit" class="btn btn-primary">
-            S'inscrire
-          </button>
+          <router-link @click="inscription" class="btn btn-primary" to="/Todo">
+            Inscription
+          </router-link>
 
           <br />
         </form>

@@ -1,6 +1,10 @@
 <template>
   <div>
     <h3>Nouvelle liste</h3>
+    <p> current list: </p>
+
+
+
     <div class="form-group">
       <input v-model="myTodoName" type="text" name="" id="" />
       <button @click="createListe" id="add" class="btn btn-success">
@@ -15,13 +19,16 @@
         <!-- {{ load() }} -->
         <div class="list-group">
           <ul>
-            <li v-bind:key="index" v-for="(toDolist, index) in load()">
+            <li v-bind:key="index" v-for="(toDolist, index) in getMyTodoLists">
               <button
+                v-on:click="testMeth(index)"
                 type="button"
                 class="list-group-item list-group-item-action"
-                @click.prevent="showId(toDolist.id, toDolist.name)"
               >
                 {{ toDolist.name }}
+                
+        
+
               </button>
               <ListeTodoListe class = "comp" :monId="idTodoListCurrent"></ListeTodoListe>
               
@@ -50,14 +57,13 @@ export default {
   data() {
     return {
       myTodoName: "",
-      idTodoListCurrent: "",
-      toke: ""
+      idTodoListCurrent: ""
     };
   },
 
   computed: {
     ...mapGetters("compte", ["myToken", "getUser"]),
-    ...mapGetters("todolist", ["getMyTodoLists","loadTodoList"])
+    ...mapGetters("todolist", ["getMyTodoLists","loadTodoList","getMyTodoLists","getCurrentList"])
   },
 
   methods: {
@@ -65,10 +71,13 @@ export default {
       "createTodoList",
       "loadTodoLists",
       "deleteTodoList",
-      "loadTodos"
+      "loadTodos",
+      "modifCurrentlist"
     ]),
-    mounted() {
-      this.createToDoList();
+
+    testMeth(key){
+      console.log(key)
+      this.modifCurrentlist(key)
     },
 
     createListe() {
@@ -76,9 +85,11 @@ export default {
     },
 
     load() {
+      console.log(this.myToken);
       this.loadTodoLists(this.myToken);
       return this.getMyTodoLists;
     },
+
     showId(ident, name) {
       this.idTodoListCurrent = ident;
       this.myTodoName = name;
@@ -97,7 +108,10 @@ export default {
 
    
   },
-  
+  mounted() {
+      // this.createToDoList();
+      this.loadTodoLists(this.myToken);
+    },
 
 };
 </script>

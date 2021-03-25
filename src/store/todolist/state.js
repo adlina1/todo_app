@@ -1,7 +1,8 @@
 export default function(){
   return{
-    todoLists:[],
+    todoLists: null,
     todos: null,
     ident:'',
+    currentList: null
   }
 }

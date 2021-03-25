@@ -45,14 +45,10 @@
            
            <!-- Redirection lorsqu'on clique sur se connecter -->
 
-             <button @click="connectMe" class="btn btn-primary">
-              Connexion
-            </button>
-          
 
-          <!-- <router-link @click="connectMe" class="btn btn-primary" to="#">
+          <router-link @click="connectMe" class="btn btn-primary" to="/Todo">
             Connexion
-          </router-link> -->
+          </router-link>
 
         </form>
       </div>
@@ -84,30 +80,34 @@ export default {
   methods: {
     ...mapActions("compte", ["login", "showUser"]),
 
-    authentificated: function() {
-          if (this.myToken != undefined) {
-            this.$route.push("/Todo");
-            console.log("suceed: can connected")
-          } else {
-            alert("keita est ici");
-              console.log("error!!!!!! can'T connected");
-          }
-        },
+    // authentificated: function() {
+    //       if (this.myToken != undefined) {
+    //         this.$route.push("/Todo");
+    //         console.log("suceed: can connected")
+    //       } else {
+    //         alert("keita est ici");
+    //         console.log("error!!!!!! can'T connected");
+    //       }
+    //     },
 
     connectMe() {
       this.login({ email: this.email, password: this.password })
         .then(function() {
-          this.$router.push('/');
+          console.log("in connectme")
+          console.log(this.$router)
+          // this.$router.push('/Todo');
         })
         .catch(function(error) {
           console.log("Une erreur a été trouvée: ", error);
         });
     }
+
   }
 };
 </script>
 
 <style scoped>
+
 .checkToken {
   margin-top: 3%;
   font-size: 10px;

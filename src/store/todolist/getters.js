@@ -9,3 +9,7 @@ export function getTodos(state){
 export function getIdentTodolist(state){
   return state.iden;
 }
+
+export function getCurrentList(state){
+  return state.currentList;
+}
