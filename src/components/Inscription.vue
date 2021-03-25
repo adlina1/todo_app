@@ -7,9 +7,7 @@
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
       <div class="col-md-6">
-
         <form>
-
           <!-- user -->
           <div class="form-group">
             <input
@@ -75,12 +73,14 @@
           </div>
           <br />
 
-          <button  @click="inscription" type="submit" class="btn btn-primary">S'inscrire</button>
+          <button @click="inscription" type="submit" class="btn btn-primary">
+            S'inscrire
+          </button>
 
-          <br>
-        
-          <p> token : {{ myToken }} </p>
+          <br />
 
+          <p>token : {{ myToken }}</p>
+           <p>user : {{ getUser }} </p>
         </form>
       </div>
       <!-- La partie droite  -->
@@ -89,12 +89,8 @@
   </div>
 </template>
 
-
-
-
 <script>
-
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   namespaced: true,
@@ -107,32 +103,34 @@ export default {
       cfr_motDePasse: ""
     };
   },
-    computed: {
-    ...mapGetters("compte", ["myToken"]),
-    },
+  computed: {
+    ...mapGetters("compte", ["myToken","getUser"])
+  },
 
-    methods: {
-
+  methods: {
     ...mapActions(
-       "compte", ["signup"] //module, method
+      "compte",
+      ["signup"] //module, method
     ),
-    mounted(){
+    mounted() {
       this.signup();
     },
 
-    inscription(){
-      if(this.motDePasse === this.cfr_motDePasse){
-        this.signup({'user': this.user, 'email': this.email, 'password': this.motDePasse})
-        .then( function(response) {
-          console.log("response",response);
-      })
-      .catch(error => {
-        console.log("erreur trouvée:\n", error);
-      });
-      }  
+    inscription() {
+      if (this.motDePasse === this.cfr_motDePasse) {
+        this.signup({
+          user: this.user,
+          email: this.email,
+          password: this.motDePasse
+        })
+          .then(function(response) {
+            console.log("response", response);
+          })
+          .catch(error => {
+            console.log("erreur trouvée:\n", error);
+          });
+      }
     }
   }
 };
-
 </script>
-

@@ -1,11 +1,11 @@
-import Vuex from 'vuex'
-
-
-const store = new Vuex.Store({
-  state: {
-    token: '',
-    user: ''
+export default function(){
+  return {
+    token:"",
+    user:{
+      email:"",
+      name:"",
+      ident:""
+    }
   }
-});
+}
 
-export default store;

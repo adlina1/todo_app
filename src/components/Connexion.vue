@@ -39,12 +39,13 @@
             />
           </div>
           <br />
-          <router-link @click="connectMe" class="btn btn-primary" to="Todo">
+          <router-link @click="connectMe" class="btn btn-primary" to="#">
             Connexion
           </router-link>
         </form>
       </div>
       <p class="checkToken">Token : {{ myToken }}</p>
+      <p>user : {{ getUser }} </p>
 
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
@@ -61,35 +62,26 @@ export default {
   data() {
     return {
       email: "",
-      password: "",
+      password: ""
     };
   },
 
   computed: {
-    ...mapGetters("compte", ["myToken", "currentUser"]),
-    ...mapGetters("compte", ["getIsConnected", "currentUser"]),
+    ...mapGetters("compte", ["currentUser","myToken","getUser"])
   },
 
   methods: {
     ...mapActions("compte", ["login", "showUser"]),
-
-    canConnected: function() {
-      if (this.getIsConnected != undefined) {
-        this.$route.push("/Todo");
-      }
-    },
     connectMe() {
       this.login({ email: this.email, password: this.password })
-        .then(function(response) {
-          console.log(response);
-          this.canConnected();
-          console.log(this.getIsConnected);
+        .then(function() {
+          
         })
         .catch(function(error) {
           console.log("Une erreur a été trouvée: ", error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
