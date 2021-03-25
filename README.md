@@ -22,7 +22,7 @@ npm install
 * Mohamed CAMARA 
 * Aboubacar CAMARA
 * Amayes MEZINE
-* Amadou Keita
+* Amadou KEITA
 
 
 ### Professeur responsable du groupe 3B:
