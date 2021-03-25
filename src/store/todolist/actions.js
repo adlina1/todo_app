@@ -69,6 +69,7 @@ export function loadTodos({ commit }, data){
       {'Authorization': 'Bearer '+data['token']}})
   .then(response => {
     commit("set_Todos", response.data);
+    commit("set_identTodoList",data["id"]);
   })
   .catch(error => {
     console.log("erreur trouvée [chargement todos]s:\n", error);

@@ -27,7 +27,7 @@ const routes = [
     component: About
   },
   {
-    path: "/todo",
+    path: "/Todo",
     name: "Todo",
     component: Todo
   }

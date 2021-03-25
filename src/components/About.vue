@@ -30,26 +30,18 @@
       <li>Amadou KEITA</li>
       <li>Aboubacar CAMARA</li>
     </ul>
-       <p>token : {{ myToken }}</p>
-        <p>user : {{ getUser }} </p>
+   
   </div>
 
   </div>
 </template>
 
 <script lang="ts">
-import { mapGetters } from "vuex";
-
-export default {
-
-  computed:{
-     ...mapGetters("compte", ["myToken","getUser"]),
-  }
-};
 
 </script>
 
 <style scoped>
+
 .description {
   margin-top: 5%;
   font-size: 17px;
@@ -62,10 +54,14 @@ export default {
   margin-top: 3%;
   font-size: 19px;
 }
+
 .list {
   color: rgb(27, 44, 71);
 }
+
 li {
+  list-style-type: none;
   margin-bottom: 15px;
 }
+
 </style>

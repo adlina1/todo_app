@@ -23,6 +23,8 @@
               >
                 {{ toDolist.name }}
               </button>
+              <ListeTodoListe class = "comp" :monId="idTodoListCurrent"></ListeTodoListe>
+              
             </li>
           </ul>
         </div>
@@ -33,10 +35,16 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import LIsteTodoList from './LIsteTodoList.vue';
+
 export default {
   name: "AjouterTodoList",
   props: {
-    msg: String
+    msg: String,
+  },
+
+  components: {
+    ListeTodoListe : LIsteTodoList
   },
 
   data() {
@@ -95,6 +103,10 @@ export default {
 </script>
 
 <style scoped>
+.comp {
+  display: none;
+}
+
 ul{
     list-style: none;
 }

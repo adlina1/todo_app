@@ -1,17 +1,30 @@
 <template>
+
   <ul>
       <li>Premère liste</li>
       <li>Deuxième liste</li>
-      <li>N ième liste</li>
+      <li>  N-ème </li>
   </ul>
+    
+
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+
+
 export default {
+  
     name:'LIsteTodoList',
-    props:{
-        msg:String
+
+    // props:{
+    //     msg:String,
+    // },
+
+    props: {
+        monId: {
+            type: String,
+            required: true
+        }
     },
 
     methods:{

@@ -78,9 +78,6 @@
           </button>
 
           <br />
-
-          <p>token : {{ myToken }}</p>
-           <p>user : {{ getUser }} </p>
         </form>
       </div>
       <!-- La partie droite  -->

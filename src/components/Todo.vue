@@ -8,7 +8,7 @@
           <ajouterList id="ajoutList" />
         </div>
          <div class="col-lg-6">
-           <!-- <listeTodo id="tache"/> -->
+           <listeTodo id="tache"/>
          </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
 
 <script>
 import ajouterList from '@/components/compTodoliste/AjouterTodoList.vue';
-//import listeTodo from '@/components/compTodoliste/ListeTodo.vue';
+import listeTodo from '@/components/compTodoliste/ListeTodo.vue';
 // import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -29,15 +29,12 @@ export default {
      value:'',
     };
   },
-
-  
-
   methods: {
     
   },
   components: {
     ajouterList,
-    //listeTodo
+    listeTodo
   }
 
   

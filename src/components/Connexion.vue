@@ -1,4 +1,5 @@
 <template>
+
   <div class="conteneur">
     <h1>Connexion</h1>
     <br />
@@ -7,6 +8,7 @@
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
       <div class="col-md-6">
+
         <form>
           <!-- Email -->
           <div class="form-group">
@@ -25,6 +27,7 @@
               soit</small
             >
           </div>
+
           <br />
           <!-- Mot de passe  -->
           <div class="form-group">
@@ -38,14 +41,22 @@
               placeholder="Mot de passe"
             />
           </div>
-          <br />
-          <router-link @click="connectMe" class="btn btn-primary" to="#">
+          <br/>
+           
+           <!-- Redirection lorsqu'on clique sur se connecter -->
+
+             <button @click="connectMe" class="btn btn-primary">
+              Connexion
+            </button>
+          
+
+          <!-- <router-link @click="connectMe" class="btn btn-primary" to="#">
             Connexion
-          </router-link>
+          </router-link> -->
+
         </form>
       </div>
-      <p class="checkToken">Token : {{ myToken }}</p>
-      <p>user : {{ getUser }} </p>
+    
 
       <!-- La partie droite  -->
       <div class="col-md-3"></div>
@@ -72,10 +83,21 @@ export default {
 
   methods: {
     ...mapActions("compte", ["login", "showUser"]),
+
+    authentificated: function() {
+          if (this.myToken != undefined) {
+            this.$route.push("/Todo");
+            console.log("suceed: can connected")
+          } else {
+            alert("keita est ici");
+              console.log("error!!!!!! can'T connected");
+          }
+        },
+
     connectMe() {
       this.login({ email: this.email, password: this.password })
         .then(function() {
-          
+          this.$router.push('/');
         })
         .catch(function(error) {
           console.log("Une erreur a été trouvée: ", error);

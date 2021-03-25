@@ -5,3 +5,7 @@ export function getMyTodoLists(state){
 export function getTodos(state){
   return state.todos;
 }
+
+export function getIdentTodolist(state){
+  return state.iden;
+}

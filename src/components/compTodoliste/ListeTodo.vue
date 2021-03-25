@@ -1,10 +1,15 @@
 <template>
   <div>
-      <h3>Liste des tâches</h3>
+      <h3>Liste des tâches </h3>
+      <input type="text" name="" id=""/> 
+      <button>add</button>
+      <button>sup</button>
+      <div>
+        {{"Ident :"+getIdentTodolist }}
+      </div>
       <p>
           {{ getTodos }}
       </p>
-      <input type="text" name="" id=""/>
   </div>
 </template>
 
@@ -18,7 +23,7 @@ export default {
 
      computed: {
     ...mapGetters("compte", ["myToken", "getUser"]),
-    ...mapGetters("todolist", ["getTodos"])
+    ...mapGetters("todolist", ["getTodos","getIdentTodolist"])
   },
 
 }
