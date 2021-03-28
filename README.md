@@ -30,18 +30,18 @@ Ou s'inscrire via l'onglet portant ce même nom.
 
 ### Fait
 
-Authentification et inscription avec les appels à l'API, ajout, affichage et suppression de todolist via l'API. Afficher les todos d'une liste.
-Routing.
-Mise en forme avec bootstrap principalement
-Architecture du store en deux dossiers distincts pour la partie account et todolist
+* Authentification et inscription avec les appels à l'API, ajout, affichage et suppression de todolist via l'API. Afficher les todos d'une liste.
+* Routing.
+* Mise en forme avec bootstrap principalement
+* Architecture du store en deux dossiers distincts pour la partie account et todolist
 
 ### Non fait
 
-Ajout, suppression, modification d'une todo
-Filtrage d'une todo
-Afficher le nombre de todos non faites
-Gestion des données en local avec le localStorage
-Bonus
+* Ajout, suppression, modification d'une todo
+* Filtrage d'une todo
+* Afficher le nombre de todos non faites
+* Gestion des données en local avec le localStorage
+* Bonus
 
 ### Amélioration possibles (priorisées)
 
