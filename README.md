@@ -35,23 +35,6 @@ Ou s'inscrire via l'onglet portant ce même nom.
 * Mise en forme avec bootstrap principalement
 * Architecture du store en deux dossiers distincts pour la partie account et todolist
 
-### Non fait
-
-* Ajout, suppression, modification d'une todo
-* Filtrage d'une todo
-* Afficher le nombre de todos non faites
-* Gestion des données en local avec le localStorage
-* Bonus
-
-### Amélioration possibles (priorisées)
-
-Sans compter les choses "non faites": 
-
-1) Gestion des erreurs 
-2) Gestion des bugs
-3) Déplacer des todos dans d'autres listes
-4) Design 
-
 ### Team
 
 * Adrien LINARES
